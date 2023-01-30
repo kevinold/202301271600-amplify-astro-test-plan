@@ -13,7 +13,7 @@ export default defineConfig({
   },
 
   e2e: {
-    baseUrl: "https://main.d2suven3crjiz3.amplifyapp.com",
+    baseUrl: process.env.AWS_BRANCH ? `https://${process.env.AWS_BRANCH}.${process.env.AWS_APP_ID}.amplifyapp.com` : "http://localhost:3000",
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
