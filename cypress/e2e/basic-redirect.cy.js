@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Basic redirect - 301", () => {
+describe("Basic redirect - 302", () => {
   const sourceUri = "/original.html";
   const destinationUri = "/destination.html";
   it(`should redirect ${sourceUri} to ${destinationUri}`, () => {
@@ -8,13 +8,13 @@ describe("Basic redirect - 301", () => {
     cy.url().should("equal", destinationUri);
     cy.getBySel("content").should("have.text", "Destination");
   });
-  it(`${sourceUri} should return status code 301`, () => {
+  it(`${sourceUri} should return status code 302`, () => {
     cy.request({
       url: sourceUri,
       followRedirect: false, // turn off following redirects
     }).then((resp) => {
-      // redirect status code is 301
-      expect(resp.status).to.eq(301);
+      // redirect status code is 302
+      expect(resp.status).to.eq(302);
     });
   });
 });
