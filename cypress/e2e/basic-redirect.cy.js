@@ -6,7 +6,7 @@ describe("Basic redirect - 301", () => {
   it(`should redirect ${sourceUri} to ${destinationUri}`, () => {
     cy.visit(sourceUri);
     cy.url().should("equal", destinationUri);
-    cy.getBySel("content").should("have.text", "This is the B route");
+    cy.getBySel("content").should("have.text", "Destination");
   });
   it(`${sourceUri} should return status code 301`, () => {
     cy.request({

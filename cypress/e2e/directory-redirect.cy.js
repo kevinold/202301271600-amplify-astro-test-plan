@@ -1,10 +1,12 @@
 /// <reference types="cypress" />
 
 describe("Directory redirect - 301", () => {
-  it("should redirect /a to /b", () => {
-    cy.visit("/a");
-    cy.url().should("match", /b$/);
-    cy.getBySel("content").should("have.text", "This is the B route");
+  const sourceUri = "/origdir";
+  const destinationUri = "/destdir";
+  it(`should redirect ${sourceUri} to ${destinationUri}`, () => {
+    cy.visit(sourceUri);
+    cy.url().should("equal", destinationUri);
+    cy.getBySel("content").should("have.text", "This is the destination index route");
   });
   it("/a should return status code 301", () => {
     cy.request({
