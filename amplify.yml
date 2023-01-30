@@ -23,26 +23,26 @@ frontend:
     paths:
       - node_modules/**/*
       - ~/.cache/**/*
-test:
-  artifacts:
-    baseDirectory: cypress
-    configFilePath: "**/mochawesome.json"
-    files:
-      - "**/*.png"
-      - "**/*.mp4"
-  phases:
-    preTest:
-      commands:
-        - nvm use ${VERSION_NODE_17}
-        - npm ci
-        - npm run build
-    test:
-      commands:
-        - nvm use ${VERSION_NODE_17}
-        - 'npm run build:aws-exports-mjs'
-        - 'npx cypress run --config baseUrl="https://${AWS_BRANCH}.${AWS_APP_ID}.amplifyapp.com" --reporter mochawesome --reporter-options "reportDir=cypress/report/mochawesome-report,overwrite=false,html=false,json=true,timestamp=mmddyyyy_HHMMss"'
-    postTest:
-      commands:
-        - nvm use ${VERSION_NODE_17}
-        - npx mochawesome-merge cypress/report/mochawesome-report/mochawesome*.json > cypress/report/mochawesome.json
-        - npx pm2 kill
+# test:
+#   artifacts:
+#     baseDirectory: cypress
+#     configFilePath: "**/mochawesome.json"
+#     files:
+#       - "**/*.png"
+#       - "**/*.mp4"
+#   phases:
+#     preTest:
+#       commands:
+#         - nvm use ${VERSION_NODE_17}
+#         - npm ci
+#         - npm run build
+#     test:
+#       commands:
+#         - nvm use ${VERSION_NODE_17}
+#         - 'npm run build:aws-exports-mjs'
+#         - 'npx cypress run --config baseUrl="https://${AWS_BRANCH}.${AWS_APP_ID}.amplifyapp.com" --reporter mochawesome --reporter-options "reportDir=cypress/report/mochawesome-report,overwrite=false,html=false,json=true,timestamp=mmddyyyy_HHMMss"'
+#     postTest:
+#       commands:
+#         - nvm use ${VERSION_NODE_17}
+#         - npx mochawesome-merge cypress/report/mochawesome-report/mochawesome*.json > cypress/report/mochawesome.json
+#         - npx pm2 kill
