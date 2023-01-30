@@ -8,9 +8,24 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:aws-exports-mjs": "cp src/aws-exports.js src/aws-exports.mjs",
+    "precy:open": "yarn build:aws-exports-mjs",
+    "cy:open": "cypress open --e2e",
+    "pretest:provisionCognitoUsers": "npm run build:aws-exports-mjs",
+    "test:provisionCognitoUsers": "node --experimental-json-modules scripts/provisionCognitoUsers.mjs"
   },
   "dependencies": {
-    "astro": "^2.0.2"
+    "astro": "^2.0.2",
+    "aws-sdk": "^2.1290.0",
+    "cypress": "^12.3.0",
+    "dotenv": "^16.0.3",
+    "http-server": "^14.1.1",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.2",
+    "mochawesome-report-generator": "^6.2.0",
+    "prettier": "^2.8.2",
+    "wait-on": "^7.0.1"
   }
 }

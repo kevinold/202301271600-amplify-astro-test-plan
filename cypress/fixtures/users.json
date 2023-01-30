@@ -1,0 +1,10 @@
+[
+  {
+    "username": "primary@email.com",
+    "email": "primary@email.com"
+  },
+  {
+    "username": "secondary@email.com",
+    "email": "secondary@email.com"
+  }
+]
