@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
 describe("Directory redirect - 301", () => {
-  const sourceUri = "/origdir";
-  const destinationUri = "/destdir";
+  const sourceUri = "/origdir/test.html";
+  const destinationUri = "/destdir/test.html";
   it(`should redirect ${sourceUri} to ${destinationUri}`, () => {
     cy.visit(sourceUri);
     cy.url().should("equal", destinationUri);

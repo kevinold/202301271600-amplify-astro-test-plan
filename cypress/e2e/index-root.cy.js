@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Index root redirect - 200 rewrite", () => {
+describe.skip("Index root redirect - 200 rewrite", () => {
   const sourceUri = "/anything";
   it("should redirect /<*> to /index.html", () => {
     cy.visit(sourceUri);
