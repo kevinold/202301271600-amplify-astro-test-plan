@@ -5,7 +5,7 @@ describe("Directory redirect - 301", () => {
   const destinationUri = "/destdir/test.html";
   it(`should redirect ${sourceUri} to ${destinationUri}`, () => {
     cy.visit(sourceUri);
-    cy.url().should("equal", destinationUri);
+    cy.url().should("contain", destinationUri);
     cy.getBySel("content").should("have.text", "This is the destination index route");
   });
   it("/a should return status code 301", () => {

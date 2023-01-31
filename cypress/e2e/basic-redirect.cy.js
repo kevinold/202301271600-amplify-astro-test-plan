@@ -5,7 +5,7 @@ describe("Basic redirect - 302", () => {
   const destinationUri = "/destination.html";
   it(`should redirect ${sourceUri} to ${destinationUri}`, () => {
     cy.visit(sourceUri);
-    cy.url().should("equal", destinationUri);
+    cy.url().should("contain", destinationUri);
     cy.getBySel("content").should("have.text", "Destination");
   });
   it(`${sourceUri} should return status code 302`, () => {
